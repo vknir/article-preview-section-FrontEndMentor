@@ -1,0 +1,248 @@
+
+/* CSS Resets by https://www.joshwcomeau.com/css/custom-css-reset/ */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  /*
+    8. Create a root stacking context
+  */
+#root, #__next {
+    isolation: isolate;
+}
+
+/* specifying all constants */
+
+:root{
+    --clr-heading:hsl(217, 19%, 35%);
+    --clr-font:hsl(214, 17%, 51%);
+    --clr-grayish-blue:hsl(212, 23%, 69%);
+    --clr-background:hsl(210, 46%, 95%);
+
+
+    --fw-normal :500;
+    --fw-bold:700;
+
+    --fs-normal: .8125rem;
+    --fs-heading: 1rem;
+
+    --border-radius:.75rem;
+}
+
+
+/*styling body*/
+
+body{
+  background-color: var(--clr-background);
+
+  font-size: var(--fs-normal);
+  font-weight: var(--fw-normal);
+
+  font-family: "Manrope", system-ui;
+}
+
+/* styling wrapper */
+
+.wrapper{
+  margin-block: 20%;
+  margin-inline: 7%;
+  
+
+  background-color: white;
+
+  border-radius: var(--border-radius);
+  
+}
+
+.wrapper > img{
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+/* styling class .text */
+
+.text{
+  padding-block: 12% 6%;
+  padding-inline: 8%;
+}
+
+.text .information > h1 {
+  font-size: var(--fs-heading);
+  margin-bottom: 1rem;
+
+  color: var(--clr-heading);
+}
+
+.text .information > p{
+  color: var(--clr-font);
+  
+}
+
+/* styling class .profile */
+
+.profile{
+  display: flex;
+  justify-content: space-between;
+  
+  align-items: center;
+  margin-top: 1.5rem;
+
+  /* display: none; */
+}
+
+.profile > .left-section{
+  display: flex;
+  align-items: center;
+  gap:1rem;
+}
+
+.profile > .left-section >img{
+  height: 2rem;
+  border-radius: 50%;
+}
+
+
+.profile > .left-section > p{
+  color: var(--clr-font);
+}
+
+.profile > .left-section > p> span{
+  font-weight: var(--fw-bold);
+  color: var(--clr-heading);
+  display: block;
+}
+
+.profile > .right-section{
+  background-color: var(--clr-background);
+  padding: .5rem;
+  border-radius: 50%;
+}
+
+
+/* styling class .share-menu */
+
+.share-menu{
+  background-color: var(--clr-heading);
+  padding:5% 7%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius:var(--border-radius) ;
+
+  display: none;
+
+
+  width: 100%;
+}
+
+.share-menu > .left-section{
+  display: flex;
+  gap:1rem;
+  align-items: center;
+
+  
+}
+
+.share-menu > .left-section > p{
+  color: var(--clr-grayish-blue);
+  margin-right: .5rem;
+}
+
+
+.share-menu >.right-section{
+  background-color: var(--clr-grayish-blue);
+  padding: .5rem;
+  border-radius: 50%;
+
+  
+}
+
+.share-menu > .right-section >img{
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(298deg) brightness(102%) contrast(102%);
+}
+
+@media(min-width:1024px)
+{
+  .wrapper{
+    display: grid;
+    
+    grid-template-columns:300px 1fr;
+    gap: 0;
+    margin-inline:20%;
+
+    position: relative;
+  }
+
+  .wrapper > img{
+    height: 100%;
+    width: 100%;
+
+    border-top-right-radius:0;
+    border-bottom-left-radius: var(--border-radius);
+  }
+
+  .text{
+    padding:10%;
+  }
+  
+
+  .share-menu{
+    position: absolute;
+    width: 250px;
+
+    top:50%;
+    left:75%;
+
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+
+    padding: 3% 5%;
+  }
+
+}
